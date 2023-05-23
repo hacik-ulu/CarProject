@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Reflection.Emit;
 using System.Reflection.Metadata;
 using System.Text;
 
@@ -15,9 +16,17 @@ namespace DataAccess.Concrete.EntityFramework
             optionsBuilder.UseSqlServer(@"Server =HACIKULU1\SQLEXPRESS;Database =ProjectDatabase;Trusted_Connection=true");
         }
 
+
         //Hangi class hangi tabloya karşılık geliyor.
         public DbSet<Car> Cars { get; set; }
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Color> Colors { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Rental> Rentals { get; set; }
+
+
     }
 }
+
+

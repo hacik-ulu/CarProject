@@ -23,7 +23,7 @@ namespace Business.Concrete
 
         public IResult Add(Color color)
         {
-            if (color.Name.Length < 2)
+            if (color.ColorName.Length < 2)
             {
                 return new ErrorResult(Messages.ColorNameInvalid);
             }
@@ -43,9 +43,9 @@ namespace Business.Concrete
 
         }
 
-        public IDataResult<List<Color>> GetColorById(int id)
+        public IDataResult<List<Color>> GetColorById(int colorId)
         {
-            return new SuccessDataResult<List<Color>>(_colorDal.GetAll(p => p.Id == id).ToList());
+            return new SuccessDataResult<List<Color>>(_colorDal.GetAll(p => p.ColorId == colorId).ToList());
         }
 
         public IResult Update(Color color)

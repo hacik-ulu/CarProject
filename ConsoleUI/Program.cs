@@ -25,9 +25,61 @@ namespace ConsoleUI
             //DeleteBrand();
             //AddColor();
             //DeleteColor();
-            CarTest();
+            //CarTest();
+            //Addusers();
+            //Addcustomers();
+            //RentalAdd();
 
+           
         }
+
+        private static void RentalAdd()
+        {
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
+
+            var result = rentalManager.Add(new Rental
+            {
+                CarId = 15,
+                CustomerId = 3,
+                RentalId = 3,
+                RentDate = new DateTime(2023, 5, 28),
+                ReturnDate = new DateTime(2023, 5, 29)
+            });
+            if (result.Success == true)
+            {
+                Console.WriteLine(result.Message);
+
+            }
+            else
+            {
+                Console.WriteLine(result.Message);
+            }
+        }
+
+        private static void Addcustomers()
+        {
+            CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
+            Customer customer1 = new Customer();
+
+            customer1.CustomerId = 1; // bizim tarafımızdan verilecek id
+            customer1.UserId = 1; //sistem tarafından verilecek oto id
+            customer1.CompanyName = "Test";
+            customerManager.Add(customer1);
+        }
+
+        private static void Addusers()
+        {
+            UserManager userManager = new UserManager(new EfUserDal());
+            User user1 = new User();
+
+            user1.FirstName = "Engin";
+            user1.LastName = "Salih";
+            user1.Email = "enginsalih@gmail.com";
+            user1.Password = "password2";
+            userManager.Add(user1);
+        }
+
+
 
 
         private static void CarTest()
