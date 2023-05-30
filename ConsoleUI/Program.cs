@@ -29,8 +29,8 @@ namespace ConsoleUI
             //Addusers();
             //Addcustomers();
             //RentalAdd();
-
-           
+            //AOP--Uygulamanın başında ya da sonunda çalışması istenen kodların dizayn edilmesi.
+            //Invocation -- Metod
         }
 
         private static void RentalAdd()
